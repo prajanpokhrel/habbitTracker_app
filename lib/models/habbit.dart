@@ -10,7 +10,7 @@ class Habit {
   late String name;
 
   //Completed day
-  List<DateTime> completeddays = [];
+  List<DateTime> completedDays = [];
   //DateTime(years, months , day)
   //DateTimr(2024,1,1)
 }

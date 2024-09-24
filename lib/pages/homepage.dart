@@ -9,16 +9,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      drawer: Drawer(
-          backgroundColor: Theme.of(context).colorScheme.background,
-          child: CupertinoSwitch(
-            value: Provider.of<ThemeProvider>(context).isDarkMode,
-            onChanged: (value) {
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-            },
-          )),
-    );
+    return Scaffold(appBar: AppBar(), drawer: Drawer());
   }
 }

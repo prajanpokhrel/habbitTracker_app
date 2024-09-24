@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habbittacker_app/database/habbit_database.dart';
 import 'package:habbittacker_app/pages/homepage.dart';
-import 'package:habbittacker_app/themes/dark_mode.dart';
-import 'package:habbittacker_app/themes/light_mode%20.dart';
 
 import 'package:habbittacker_app/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -12,8 +10,17 @@ void main() async {
   //Initialize database
   await Habbitdatabase.initialize();
   await Habbitdatabase().saveFirstLaunchDate();
-  runApp(ChangeNotifierProvider(
-    create: (context) => ThemeProvider(),
+  runApp(MultiProvider(
+    providers: [
+      // habbit provider
+      ChangeNotifierProvider(
+        create: (context) => Habbitdatabase(),
+      ),
+      // themeprovider
+      ChangeNotifierProvider(
+        create: (context) => ThemeProvider(),
+      ),
+    ],
     child: const MyApp(),
   ));
 }
